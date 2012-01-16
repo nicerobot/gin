@@ -1,9 +1,8 @@
 - Generalize more to provide host, port, and path in the symlink.
   - Maybe using raw.github.com[-port]/gist/[gist]/[file].[typ] as the entire symlink
   - Still default to using gist
-
 - Download the file to tmpfil, chmod +x and execute directly. It provides more versatility.
-
+- Verify the file exists | grep '404 Not Found'
 - Providing a general link in .gin can allow testing of various versions of a script:
 
   e.g. 
