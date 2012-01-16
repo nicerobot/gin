@@ -24,7 +24,7 @@ Assuming you put scripts into `${HOME}/bin`:
 
 [`gin-test.py`](https://raw.github.com/gist/1623040/gin-test.py)
 
->     ln -s 1623040/git-test.py ${HOME}/.gin/
+>     ln -s 1623040/gin-test.py ${HOME}/.gin/
 >     ln -s gin ${HOME}/bin/gin-test.py
 >     ${HOME}/bin/gin-test.py
 
@@ -45,9 +45,9 @@ Assuming you put scripts into `${HOME}/bin`:
 
 >>     Hello, gin!
 
-[`gin-test.py`](https://raw.github.com/gist/1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/git-test.py)
+[`gin-test.py`](https://raw.github.com/gist/1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-test.py)
 
->     ln -s 1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/git-test.py ${HOME}/.gin/
+>     ln -s 1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-test.py ${HOME}/.gin/
 >     ln -s gin ${HOME}/bin/gin-test.py
 >     ${HOME}/bin/gin-test.sh
 
