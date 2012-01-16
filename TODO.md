@@ -2,6 +2,8 @@
   - Maybe using raw.github.com[-port]/gist/[gist]/[file].[typ] as the entire symlink
   - Still default to using gist
 
+- Download the file to tmpfil, chmod +x and execute directly. It provides more versatility.
+
 - Providing a general link in .gin can allow testing of various versions of a script:
 
   e.g. 
@@ -12,4 +14,3 @@
 >     for gist in 1623040 1623041 1623042; do
 >         GINHUB="https://raw.github.com/gist/${gist}" ${HOME}/bin/gin-test.sh
 >     done
-

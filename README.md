@@ -12,7 +12,7 @@ Assuming you put scripts into `${HOME}/bin`:
 
 ## Configure commands
 
-`gin-test.sh`
+[`gin-test.sh`](https://raw.github.com/gist/1623040/gin-test.sh)
 
 >     ln -s 1623040/gin-test.sh ${HOME}/.gin/
 >     ln -s gin ${HOME}/bin/gin-test.sh
@@ -22,7 +22,7 @@ Assuming you put scripts into `${HOME}/bin`:
 
 ### Works for python too
 
-`gin-test.py`:
+[`gin-test.py`](https://raw.github.com/gist/1623040/gin-test.py)
 
 >     ln -s 1623040/git-test.py ${HOME}/.gin/
 >     ln -s gin ${HOME}/bin/gin-test.py
@@ -37,7 +37,7 @@ Assuming you put scripts into `${HOME}/bin`:
 
 ### Configure commands
 
-`gin-test.sh`
+[`gin-test.sh`](https://raw.github.com/gist/1623040/3cafab50e9ecf35885a68e98c64d32900d306689/gin-test.sh)
 
 >     ln -s 1623040/3cafab50e9ecf35885a68e98c64d32900d306689/gin-test.sh ${HOME}/.gin/
 >     ln -s gin ${HOME}/bin/gin-test.sh
@@ -45,7 +45,7 @@ Assuming you put scripts into `${HOME}/bin`:
 
 >>     Hello, gin!
 
-`gin-test.py`
+[`gin-test.py`](https://raw.github.com/gist/1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/git-test.py)
 
 >     ln -s 1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/git-test.py ${HOME}/.gin/
 >     ln -s gin ${HOME}/bin/gin-test.py
