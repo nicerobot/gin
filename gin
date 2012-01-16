@@ -1,0 +1,107 @@
+#!/bin/sh
+[ 'bash' == $0 ] || [ ${BASH_SOURCE[0]} != $0 ] && {
+  echo "Don't source this script! ${SELF}" >&2
+  return
+}
+GIN_VERBOCITY=${GIN_VERBOCITY:-${VEROCITY:-${VERBOSE:-${V:-0}}}}
+{ ((GIN_VERBOCITY > 0)) || GIN_VERBOCITY=0; } >/dev/null 2>&1
+((GIN_VERBOCITY>=10)) && set -x
+GIN_VERBOSE_NAME=(SELFD SELF TYPE GINHUB GIN_NAME GIST)
+
+((GIN_VERBOCITY>1)) && {
+  echo "Environment unconfigured"
+  for n in ${GIN_VERBOSE_NAMES}; do
+    v=$(eval echo '$'${n})
+    echo "${n}=${v}"
+  done
+}
+
+GINHUB=${GINHUB:-'https://raw.github.com/gist'}
+GIN_NAME=${GIN_NAME:-gin}
+GIN_REPOS=(
+  ${HOME}/.${GIN_NAME}
+  ${PWD}/.${GIN_NAME}
+  ${HOME}/${GIN_NAME}
+  ${PWD}/${GIN_NAME}
+  ${SELFD}/../${GIN_NAME}
+)
+
+SELFD=$(cd $(dirname $0) >/dev/null 2>&1; pwd)
+SELF=$(basename $0)
+[ -x ${SELFD}/${SELF} ] || {
+  echo "Whoa! ${SELF}" >&2
+  ((GIN_VERBOCITY>3)) && set
+  exit ${LINENO}
+}
+TYPE=${SELF##*.}
+[ "${TYPE}" == "${SELF}" ] && TYPE=
+TYPE=".${TYPE}"
+SELF=${SELF%.*}
+TEST=${TEST:-false}
+
+for gist in ${GIN_REPOS[@]}; do
+  name=${gist}/${SELF}${TYPE}
+  ((GIN_VERBOCITY>2)) && {
+    echo "Testing ${name}"
+  }
+  [ -L ${name} ] && {
+    GIST=($(\ls -l ${name}))
+    GIST=${GIST[${#GIST}]}
+    ((GIN_VERBOCITY>1)) && {
+      echo "Found ${name} as ${GIST}"
+    }
+    break
+  }
+done
+[ "${GIST}" ] || {
+  echo "${SELF} Not Found" >&2
+  exit ${LINENO}
+}
+
+((GIN_VERBOCITY>1)) && {
+  echo "Environment configured"
+  for n in ${GIN_VERBOSE_NAMES}; do
+    v=$(eval echo '$'${n})
+    echo "${n}=${v}"
+  done
+}
+
+[ "${TYPE}" ] || {
+  TYPE=${GIST##*.}
+  [ "${TYPE}" == "${GIST}" ] && {
+    echo "Can not execute a script without a type. ${SELF}" >&2
+    ((GIN_VERBOCITY>3)) && set
+    exit ${LINENO}
+  }
+  TYPE=".${TYPE}"
+}
+
+((GIN_VERBOCITY>0)) && echo ${SELF}.${TYPE} ${GIN_REPO}/${GIST}
+
+((GIN_VERBOCITY>4)) && {
+  CURL_VERBOSE='--verbose'
+}
+
+CURL="curl -ks ${CURL_VERBOSE} ${GINHUB}/${GIST}"
+
+[ '.sh' == ${TYPE} ] && {
+  ${TEST} && {
+    echo "${CURL} | sh -s ${@}"
+  } || {
+    ${CURL} | sh -s ${@}
+  }
+  exit $?
+}
+
+[ '.py' == ${TYPE} ] && {
+  ${TEST} && {
+    echo "${CURL} | python"
+  } || {
+    # TODO: support passing parameters to python.
+    #       Will this mean writing the script to a tempfile? I think so.
+    ${CURL} | python
+  }
+  exit $?
+}
+
+exit 1
