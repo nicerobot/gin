@@ -7,6 +7,7 @@
 - Providing a general link in .gin can allow testing of various versions of a script:
 
   e.g. 
+
 >     # Create a generic .gin
 >     ln -s git-test.py ${HOME}/.gin/
 >
