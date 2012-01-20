@@ -16,6 +16,26 @@
 			<key>sourceDirectory</key>
 			<string></string>
 		</dict>
+		<dict>
+			<key>expanded</key>
+			<true/>
+			<key>name</key>
+			<string>gin.site</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>../gin.site</string>
+		</dict>
+		<dict>
+			<key>expanded</key>
+			<true/>
+			<key>name</key>
+			<string>gin.wiki</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>../gin.wiki</string>
+		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>349</integer>
@@ -28,7 +48,7 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>15</integer>
+				<integer>50</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
