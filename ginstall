@@ -2,6 +2,6 @@
 set -o noclobber
 mkdir ${HOME}/.gin \
 && curl -ks https://raw.github.com/nicerobot/gin/master/gin >${HOME}/bin/gin \
-&& curl -ks https://raw.github.com/gist/1623040/ginln.sh  >${HOME}/bin/ginln \
+&& curl -ks https://raw.github.com/nicerobot/gin/master/ginln  >${HOME}/bin/ginln \
 && chmod +x ${HOME}/bin/gin ${HOME}/bin/ginln
 exit $?
