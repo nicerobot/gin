@@ -6,30 +6,25 @@ Run commands directly from [github](https://gist.github.com/) gists.
 
 Assuming you put scripts into `${HOME}/bin`:
 
->     mkdir ${HOME}/.gin \
->     && curl -ks https://raw.github.com/nicerobot/gin/master/gin >${HOME}/bin/gin \
->     && chmod +x ${HOME}/bin/gin
+>     curl -ks https://raw.github.com/nicerobot/gin/master/ginstall | sh
 
 ## Configure commands
 
-[`gin-test.sh`](https://raw.github.com/gist/1623040/gin-test.sh)
+[`gin-shtest.sh`](https://raw.github.com/gist/1623040/gin-shtest.sh)
 
->     ln -s 1623040/gin-test.sh ${HOME}/.gin/
->     ln -s gin ${HOME}/bin/gin-test.sh
->     ${HOME}/bin/gin-test.sh
+>     SCRIPT=1623040/gin-shtest.sh ${HOME}/bin/ginln
+>     ${HOME}/bin/gin-shtest # Note how script-links are created without extensions.
 
 >>     Hello, gin!
 
 ### Works for python too
 
-[`gin-test.py`](https://raw.github.com/gist/1623040/gin-test.py)
+[`gin-pytest.py`](https://raw.github.com/gist/1623040/gin-pytest.py)
 
->     ln -s 1623040/gin-test.py ${HOME}/.gin/
->     ln -s gin ${HOME}/bin/gin-test.py
->     ${HOME}/bin/gin-test.py
+>     SCRIPT=1623040/gin-pytest.py ${HOME}/bin/ginln
+>     ${HOME}/bin/gin-pytest
 
 >>     Hello, gin!
-
 
 # Security
 
@@ -37,18 +32,18 @@ Assuming you put scripts into `${HOME}/bin`:
 
 ### Configure commands
 
-[`gin-test.sh`](https://raw.github.com/gist/1623040/3cafab50e9ecf35885a68e98c64d32900d306689/gin-test.sh)
+[`gin-shtest.sh`](https://raw.github.com/gist/1623040/3cafab50e9ecf35885a68e98c64d32900d306689/gin-shtest.sh)
 
->     ln -s 1623040/3cafab50e9ecf35885a68e98c64d32900d306689/gin-test.sh ${HOME}/.gin/
->     ln -s gin ${HOME}/bin/gin-test.sh
->     ${HOME}/bin/gin-test.sh
+>     curl -ks https://raw.github.com/nicerobot/gin/master/ginln \
+>     | SCRIPT=1623040/3cafab50e9ecf35885a68e98c64d32900d306689/gin-shtest.sh sh
+>     ${HOME}/bin/gin-shtest
 
 >>     Hello, gin!
 
-[`gin-test.py`](https://raw.github.com/gist/1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-test.py)
+[`gin-pytest.py`](https://raw.github.com/gist/1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-pytest.py)
 
->     ln -s 1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-test.py ${HOME}/.gin/
->     ln -s gin ${HOME}/bin/gin-test.py
->     ${HOME}/bin/gin-test.sh
+>     curl -ks https://raw.github.com/nicerobot/gin/master/ginln \
+>     | SCRIPT=1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-pytest.py sh
+>     ${HOME}/bin/gin-pytest
 
 >>     Hello, gin!
