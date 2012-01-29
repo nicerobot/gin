@@ -5,6 +5,7 @@
   - keep cached to check for changes. no need to check if using a specific version.
 - Verify the file exists | grep '404 Not Found'
 - Providing a general link in .gin can allow testing of various versions of a script:
+- Figure out a way to support nested gin-scripts.
 
   e.g. 
 

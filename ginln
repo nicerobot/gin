@@ -1,0 +1,39 @@
+#!/bin/sh
+STARTD="${PWD}"
+GINHUB=${GINHUB:-'https://raw.github.com/gist'}
+GIN_NAME=${GIN_NAME:-gin}
+
+SCRIPT=${SCRIPT:-${1:-1623040/gin-test.sh}}
+SCRIPT_NAME=$(basename ${SCRIPT})
+SCRIPT_LINK=${SCRIPT_NAME%%.*}
+
+gin_temp=
+
+while :; do
+  [ -d ${PWD}/.${GIN_NAME} ] && gin_temp="${gin_temp:+${gin_temp}:}${PWD}"
+  [ ${PWD} == '/' ] && break
+  cd .. >/dev/null 2>&1
+done
+
+cd "${STARTD}"
+
+GIN_PATH="${gin_temp}${GIN_PATH:+:${GIN_PATH}}"
+
+GIN_DEST=
+
+IFS=':'
+for gin in ${GIN_PATH}; do
+  gin="${gin/[~]/${HOME}}"
+  gin_dest="${gin}/.${GIN_NAME}"
+  name="${gin_dest}/${SCRIPT_LINK}"
+  [ -L "${name}" ] && {
+    echo "Found ${name}"
+    exit 1
+  }
+  [ "${GIN_DEST}" ] || GIN_DEST="${gin_dest}"
+done
+
+ln -vs ${SCRIPT} ${GIN_DEST}/${SCRIPT_LINK}
+ln -vs gin ${HOME}/bin/${SCRIPT_LINK}
+
+exit 0
