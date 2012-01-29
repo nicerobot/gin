@@ -72,4 +72,9 @@ ${TEST} && printf "%s\n%s | " "${PWD}" "${CURL}"
   exit $?
 }
 
+[ 'js' == ${TYPE} ] && {
+  ${TEST} && echo "node" || ${CURL} | node
+  exit $?
+}
+
 exit 1
