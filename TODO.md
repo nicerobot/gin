@@ -2,6 +2,7 @@
   - Maybe using raw.github.com[-port]/gist/[gist]/[file].[typ] as the entire symlink
   - Still default to using gist
 - Download the file to tmpfil, chmod +x and execute directly. It provides more versatility.
+  - keep cached to check for changes. no need to check if using a specific version.
 - Verify the file exists | grep '404 Not Found'
 - Providing a general link in .gin can allow testing of various versions of a script:
 
