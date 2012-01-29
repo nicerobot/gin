@@ -3,7 +3,7 @@
   echo "Don't source this script! ${SELF}" >&2
   return
 }
-
+STARTD=${PWD}
 GINHUB=${GINHUB:-'https://raw.github.com/gist'}
 GIN_NAME=${GIN_NAME:-gin}
 
@@ -58,23 +58,17 @@ TYPE=${SCRIPT##*.}
 }
 CURL="curl -ks ${GINHUB}/${SCRIPT}"
 
+${TEST} && printf "%s\n%s | " "${PWD}" "${CURL}"
+
 [ 'sh' == ${TYPE} ] && {
-  ${TEST} && {
-    echo "${CURL} | sh -s ${@}"
-  } || {
-    ${CURL} | sh -s ${@}
-  }
+  ${TEST} && echo "sh -s ${@}" || ${CURL} | sh -s ${@}
   exit $?
 }
 
 [ 'py' == ${TYPE} ] && {
-  ${TEST} && {
-    echo "${CURL} | python"
-  } || {
-    # TODO: support passing parameters to python.
-    #       Will this mean writing the script to a tempfile? I think so.
-    ${CURL} | python
-  }
+  # TODO: support passing parameters to python.
+  #       Will this mean writing the script to a tempfile? I think so.
+  ${TEST} && echo "python" || ${CURL} | python
   exit $?
 }
 
