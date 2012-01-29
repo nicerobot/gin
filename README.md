@@ -8,11 +8,14 @@ Assuming you put scripts into `${HOME}/bin`:
 
 >     curl -ks https://raw.github.com/nicerobot/gin/master/ginstall | sh
 
-## Configure commands
+## Configure a command
 
 [`gin-shtest.sh`](https://raw.github.com/gist/1623040/gin-shtest.sh)
 
 >     SCRIPT=1623040/gin-shtest.sh ${HOME}/bin/ginln
+
+### Test the command
+
 >     ${HOME}/bin/gin-shtest # Note how script-links are created without extensions.
 
 >>     Hello, gin!
@@ -22,6 +25,9 @@ Assuming you put scripts into `${HOME}/bin`:
 [`gin-pytest.py`](https://raw.github.com/gist/1623040/gin-pytest.py)
 
 >     SCRIPT=1623040/gin-pytest.py ${HOME}/bin/ginln
+
+### Test the command
+
 >     ${HOME}/bin/gin-pytest
 
 >>     Hello, gin!
