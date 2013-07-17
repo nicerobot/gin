@@ -42,6 +42,12 @@ Basically, what just happened is:
 
 That's it.
 
+You can run `gin` scripts within other scripts. Even call other `gin` scripts from within `gin` scripts. It's simply a shell script (almost) like any other.
+
+# Possible Uses
+
+Imagine a GitHub-centralized configuration utility for your local computing environment. For example, i want to always share the same homebrew installation. I can write a Gist that lits all the packages to install. I can write a `gin` that reads it and runs the update. I can even write a `gin` that keeps all my `gin` symlinks consistent across machines.
+
 ### It works for python too
 
 [`gin-pytest.py`](https://raw.github.com/gist/1623040/gin-pytest.py)
