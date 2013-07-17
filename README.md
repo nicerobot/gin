@@ -10,17 +10,39 @@ Assuming you put scripts into `${HOME}/bin`:
 
 ## Configure a command
 
-[`gin-shtest.sh`](https://raw.github.com/gist/1623040/gin-shtest.sh)
+Let's run the Gist: [`gin-shtest.sh`](https://raw.github.com/gist/1623040/gin-shtest.sh).
+
+First, create a symlink to it.
 
 >     SCRIPT=1623040/gin-shtest.sh ${HOME}/bin/ginln
 
+That didn't download the file. It only creates a symbolic link. The benefit (and danger) is that, now, with each execution of gin-shtest, the file will be pulled from github. e.g.
+
 ### Test the command
 
->     ${HOME}/bin/gin-shtest # Note how script-links are created without extensions.
+The symbolic link that was created above can be executed just link any other command line script.
+
+>     ${HOME}/bin/gin-shtest gin
 
 >>     Hello, gin!
 
-### Works for python too
+- Note how script-links are created without extensions. The extension is important to `gin` but it isn't important to you so it's left off.
+
+### What happened?
+
+Look at the source for [`gin-shtest.sh`](https://raw.github.com/gist/1623040/gin-shtest.sh) on GitHub.
+
+Basically, what just happened is:
+
+>     curl -ks https://raw.github.com/gist/1623040/gin-shtest.sh | sh -s gin
+
+1. Fetch the file from GitHub: `curl -ks https://raw.github.com/gist/1623040/gin-shtest.sh`
+2. Pipe the script to `sh`
+3. Pass in the parameter "gin": `-s gin`
+
+That's it.
+
+### It works for python too
 
 [`gin-pytest.py`](https://raw.github.com/gist/1623040/gin-pytest.py)
 
@@ -38,6 +60,8 @@ Assuming you put scripts into `${HOME}/bin`:
 
 ### Configure commands
 
+To be secure, it's a good idea to link to a specific commit to ensure that someone doesn't change the file out from under you. It's possible with `gin` like so:
+
 [`gin-shtest.sh`](https://raw.github.com/gist/1623040/3cafab50e9ecf35885a68e98c64d32900d306689/gin-shtest.sh)
 
 >     curl -ks https://raw.github.com/nicerobot/gin/master/ginln \
@@ -45,6 +69,8 @@ Assuming you put scripts into `${HOME}/bin`:
 >     ${HOME}/bin/gin-shtest
 
 >>     Hello, gin!
+
+As seen, the SCRIPT= value is simply the link to the raw.github.com file. Include a specific commit and it's _locked_ to that file.
 
 [`gin-pytest.py`](https://raw.github.com/gist/1623040/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-pytest.py)
 
