@@ -16,11 +16,11 @@ First, create a symlink to it.
 
 >     SCRIPT=nicerobot/1623040/raw/gin-shtest.sh ${HOME}/bin/ginln
 
-That didn't download the file. It only creates a symbolic link. The benefit (and danger) is that, now, with each execution of `${HOME}/bin/gin-shtest.sh`, the file will be pulled from github. e.g.
+That didn't download the file. It only creates a symbolic link. The benefit (and danger) is that, now, with each execution of `${HOME}/bin/gin-shtest`, the file will be pulled from github. e.g.
 
 ### Test the command
 
-The symbolic link that was created above can be executed just link any other command line script.
+The symbolic link that was created above can be executed just like any other command line script.
 
 >     ${HOME}/bin/gin-shtest gin
 
