@@ -68,13 +68,13 @@ Imagine a GitHub-centralized configuration utility for your local computing envi
 
 To be secure, it's a good idea to link to a specific commit to ensure that someone doesn't change the file out from under you. It's possible with `gin` like so:
 
-[`gin-shtest.sh`](https://gist.github.com/nicerobot/1623040/raw/df8a3733e4c9226c5c83b30fe927e0c4cc3232e9/gin-shtest.sh)
+[`gin-shtest.sh`](https://gist.github.com/nicerobot/1623040/raw/1ac7c67efbca6db651e15f319e3cad5eaa86e656/gin-shtest.sh)
 
 >     curl -ks https://raw.github.com/nicerobot/gin/master/ginln \
->     | SCRIPT=nicerobot/1623040/raw/df8a3733e4c9226c5c83b30fe927e0c4cc3232e9/gin-shtest.sh sh
+>     | SCRIPT=nicerobot/1623040/raw/1ac7c67efbca6db651e15f319e3cad5eaa86e656/gin-shtest.sh sh
 >     ${HOME}/bin/gin-shtest
 
->>     Hello, gin!
+>>     Hello, gin, from an old commit!
 
 As seen, the SCRIPT= value is simply the link to the raw.github.com file. Include a specific commit and it's _locked_ to that file.
 
