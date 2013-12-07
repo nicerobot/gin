@@ -4,7 +4,7 @@
   return
 }
 STARTD=${PWD}
-GINHUB=${GINHUB:-'https://raw.github.com/gist'}
+GINHUB=${GINHUB:-'https://gist.github.com'}
 GIN_NAME=${GIN_NAME:-gin}
 
 SELFD=$(cd $(dirname $0) >/dev/null 2>&1; pwd)

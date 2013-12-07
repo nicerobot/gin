@@ -14,7 +14,7 @@ Let's run the Gist: [`gin-shtest.sh`](https://gist.github.com/nicerobot/1623040/
 
 First, create a symlink to it.
 
->     SCRIPT=1623040/raw/gin-shtest.sh ${HOME}/bin/ginln
+>     SCRIPT=nicerobot/1623040/raw/gin-shtest.sh ${HOME}/bin/ginln
 
 That didn't download the file. It only creates a symbolic link. The benefit (and danger) is that, now, with each execution of gin-shtest, the file will be pulled from github. e.g.
 
@@ -52,7 +52,7 @@ Imagine a GitHub-centralized configuration utility for your local computing envi
 
 [`gin-pytest.py`](https://gist.github.com/nicerobot/1623040/raw/gin-pytest.py)
 
->     SCRIPT=1623040/gin-pytest.py ${HOME}/bin/ginln
+>     SCRIPT=nicerobot/1623040/gin-pytest.py ${HOME}/bin/ginln
 
 ### Test the command
 
@@ -71,7 +71,7 @@ To be secure, it's a good idea to link to a specific commit to ensure that someo
 [`gin-shtest.sh`](https://gist.github.com/nicerobot/1623040/raw/df8a3733e4c9226c5c83b30fe927e0c4cc3232e9/gin-shtest.sh)
 
 >     curl -ks https://raw.github.com/nicerobot/gin/master/ginln \
->     | SCRIPT=1623040/raw/df8a3733e4c9226c5c83b30fe927e0c4cc3232e9/gin-shtest.sh sh
+>     | SCRIPT=nicerobot/1623040/raw/df8a3733e4c9226c5c83b30fe927e0c4cc3232e9/gin-shtest.sh sh
 >     ${HOME}/bin/gin-shtest
 
 >>     Hello, gin!
@@ -81,7 +81,7 @@ As seen, the SCRIPT= value is simply the link to the raw.github.com file. Includ
 [`gin-pytest.py`](https://gist.github.com/nicerobot/1623040/raw/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-pytest.py)
 
 >     curl -ks https://raw.github.com/nicerobot/gin/master/ginln \
->     | SCRIPT=1623040/raw/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-pytest.py sh
+>     | SCRIPT=nicerobot/1623040/raw/21c07ed06a5ba0160d0918beb4cd83b82021abf3/gin-pytest.py sh
 >     ${HOME}/bin/gin-pytest
 
 >>     Hello, gin!
