@@ -16,7 +16,7 @@ First, create a symlink to it.
 
 >     SCRIPT=nicerobot/1623040/raw/gin-shtest.sh ${HOME}/bin/ginln
 
-That didn't download the file. It only creates a symbolic link. The benefit (and danger) is that, now, with each execution of gin-shtest, the file will be pulled from github. e.g.
+That didn't download the file. It only creates a symbolic link. The benefit (and danger) is that, now, with each execution of `${HOME}/bin/gin-shtest.sh`, the file will be pulled from github. e.g.
 
 ### Test the command
 
